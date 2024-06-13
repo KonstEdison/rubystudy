@@ -8,14 +8,14 @@ default: &default
 
 development:
   <<: *default
-  database: your_application_development
+  database: scraping_development
 
 test:
   <<: *default
-  database: your_application_test
+  database: scraping_test
 
 production:
   <<: *default
-  database: your_application_production
+  database: scraping_production
   username: <%= ENV['PRODUCTION_DB_USERNAME'] %>
   password: <%= ENV['PRODUCTION_DB_PASSWORD'] %>
