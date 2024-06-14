@@ -10,15 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_13_095607) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_14_121140) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "defendants", force: :cascade do |t|
+    t.string "name"
+    t.string "marketplace_id"
+    t.string "location"
+    t.string "feedback"
+    t.string "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
-    t.string "product_title"
-    t.integer "product_id"
-    t.decimal "product_price"
-    t.string "product_type"
+    t.string "title"
+    t.integer "marketplace_id"
+    t.decimal "price"
+    t.string "type"
     t.boolean "tm_in_image", default: false
     t.boolean "tm_in_title", default: false
     t.boolean "tm_in_description", default: false
@@ -39,4 +49,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_13_095607) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "products", "defendants"
 end
