@@ -1,0 +1,34 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <h1 class="title">Edit Defendant</h1>
+        <%= form_with model: @defendant, local: true, html: { class: "box" } do |form| %>
+          <div class="field">
+            <%= form.label :name, class: 'label' %>
+            <%= form.text_field :name, class: 'input', placeholder: 'Enter name' %>
+          </div>
+          <div class="field">
+            <%= form.label :marketplace_id, class: 'label' %>
+            <%= form.text_field :marketplace_id, class: 'input', placeholder: 'Enter marketplace ID' %>
+          </div>
+          <div class="field">
+            <%= form.label :location, class: 'label' %>
+            <%= form.text_field :location, class: 'input', placeholder: 'Enter location' %>
+          </div>
+          <div class="field">
+            <%= form.label :feedback, class: 'label' %>
+            <%= form.text_field :feedback, class: 'input', placeholder: 'Enter feedback' %>
+          </div>
+          <div class="field">
+            <%= form.label :notes, class: 'label' %>
+            <%= form.text_area :notes, class: 'textarea', placeholder: 'Enter notes' %>
+          </div>
+          <div class="field">
+            <%= form.submit "Update Defendant", class: 'button is-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

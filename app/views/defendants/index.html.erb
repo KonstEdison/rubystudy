@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 class="title">Defendants</h1>
+  <%= link_to 'Create Defendant', new_defendant_path, class: 'button is-primary' %>
+  <table class="table is-fullwidth is-striped is-hoverable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Marketplace ID</th>
+        <th>Location</th>
+        <th>Feedback</th>
+        <th>Notes</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @defendants.each do |defendant| %>
+        <tr>
+          <td><%= defendant.name %></td>
+          <td><%= defendant.marketplace_id %></td>
+          <td><%= defendant.location %></td>
+          <td><%= defendant.feedback %></td>
+          <td><%= defendant.notes %></td>
+          <td><%= link_to 'Listings', defendant_products_path(defendant), class: 'button is-small is-info' %></td>
+          <td><%= link_to 'Edit', edit_defendant_path(defendant), class: 'button is-small is-primary' %></td>
+          <td><%= button_to 'Destroy', defendant_path(defendant), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-small is-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

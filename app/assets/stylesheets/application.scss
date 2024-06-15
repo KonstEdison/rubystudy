@@ -1,0 +1,70 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+// Define your custom colors first
+$primary: #243b5d;
+$secondary: #dd4338;
+$danger: #f14668;
+$success: #23d160;
+// Then import Bulma
+@import 'bulma';
+.button.is-secondary {
+    background-color: $secondary;
+    color: #ffffff; // Assuming you want white text
+}
+
+.field-row {
+    display: flex;
+    align-items: right;
+    /* Aligns items vertically */
+    margin-bottom: 10px;
+    /* Adds space between rows */
+}
+
+.inline-label {
+    width: 100%;
+    /* Adjust based on your layout needs */
+    text-align: left;
+    /* Aligns text to the right */
+    padding-right: 10px;
+    /* Adds space between label and input */
+}
+
+.inline-input {
+    // width: 9%; // You might want to remove or adjust this if it's not suitable for all inputs
+}
+
+.inline-input[type="text"] {
+    width: 100%; // Example width for text inputs
+}
+
+.inline-input[type="checkbox"] {
+    min-width: 20px; // Ensures checkboxes are not too small
+    height: 20px; // Optional: Adjust height to match the new width if needed
+}
+
+.checkbox-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: right;
+}
+
+.centered-submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

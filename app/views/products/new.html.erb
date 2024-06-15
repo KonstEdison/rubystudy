@@ -1,0 +1,35 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <h1 class="title">New Product</h1>
+        <%= form_with(model: [@defendant, Product.new], local: true) do |form| %>
+          <div class="columns">
+            <!-- First Column: All Text Inputs -->
+            <div class="column is-8">
+              <% [:title, :price, :type, :marketplace_id, :items_sold, :notes, :copyright_usage_filenames, :tm_registration_number].each do |field| %>
+                <div class="field-row">
+                  <%= form.label field, class: 'label inline-label' %>
+                  <%= form.text_field field, class: 'input inline-input', placeholder: "Enter #{field.to_s.gsub('_', ' ')}" %>
+                </div>
+              <% end %>
+            </div>
+
+            <!-- Second Column: All Checkboxes -->
+            <div class="column is-4 checkbox-column">
+              <% [:tm_in_image, :tm_in_title, :tm_in_description, :design_patent, :utility_patent, :copyright_images, :trademark_used, :proof_of_sale, :should_sue].each do |field| %>
+                <div class="field-row">
+                  <%= form.label field, class: 'label inline-label' %>
+                  <%= form.check_box field, class: 'checkbox-large inline-input' %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="centered-submit">
+            <%= form.submit "Create Product", class: 'button is-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

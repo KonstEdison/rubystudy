@@ -1,0 +1,45 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <h1 class="title">Defendant Details</h1>
+        <div class="box">
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input class="input" type="text" value="<%= @defendant.name %>" readonly>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Marketplace ID</label>
+            <div class="control">
+              <input class="input" type="text" value="<%= @defendant.marketplace_id %>" readonly>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Location</label>
+            <div class="control">
+              <input class="input" type="text" value="<%= @defendant.location %>" readonly>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Feedback</label>
+            <div class="control">
+              <input class="input" type="text" value="<%= @defendant.feedback %>" readonly>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Notes</label>
+            <div class="control">
+              <textarea class="textarea" readonly><%= @defendant.notes %></textarea>
+            </div>
+          </div>
+          <div class="field">
+            <%= link_to 'Edit', edit_defendant_path(@defendant), class: 'button is-primary' %>
+            <%= link_to 'Back', defendants_path, class: 'button is-light' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,38 @@
+<div class="container">
+<h1 class="title">Products for <%= @defendant.name %></h1>
+<%= link_to 'Create Product', new_defendant_product_path(@defendant), class: 'button is-primary' %>
+<div class="table-container">
+  <% if @products.empty? %>
+  <br>
+    <p class="notification is-warning">No products found for this defendant.</p>
+  <% else %>
+    <table class="table is-fullwidth is-striped is-hoverable">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Type</th>
+          <th>Marketplace ID</th>
+          <th>Items Sold</th>
+          <th>Notes</th>
+          <th colspan="2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td><%= product.title %></td>
+            <td>$<%= product.price %></td>
+            <td><%= product.type %></td>
+            <td><%= product.marketplace_id %></td>
+            <td><%= product.items_sold %></td>
+            <td><%= product.notes %></td>
+            <td><%= link_to 'Edit', edit_defendant_product_path(@defendant, product), class: 'button is-small is-info' %></td>
+            <td><%= button_to 'Delete', defendant_product_path(@defendant, product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-small is-danger' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
+</div>

@@ -8,7 +8,7 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-
+gem 'bulma-rails', '~> 0.9.1'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -26,6 +26,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem 'pg'
+
+gem 'rails-ujs'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
