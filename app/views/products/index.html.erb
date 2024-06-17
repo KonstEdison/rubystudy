@@ -1,8 +1,11 @@
 <div class="container">
 <h1 class="title">Products for <%= @defendant.name %></h1>
+
 <%= link_to 'Create Product', new_defendant_product_path(@defendant), class: 'button is-primary' %>
+
 <div class="table-container">
   <% if @products.empty? %>
+  <br>
   <br>
     <p class="notification is-warning">No products found for this defendant.</p>
   <% else %>
@@ -23,7 +26,7 @@
           <tr>
             <td><%= product.title %></td>
             <td>$<%= product.price %></td>
-            <td><%= product.type %></td>
+            <td><%= product.product_type %></td>
             <td><%= product.marketplace_id %></td>
             <td><%= product.items_sold %></td>
             <td><%= product.notes %></td>

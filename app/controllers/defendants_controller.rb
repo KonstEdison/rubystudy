@@ -18,7 +18,7 @@ class DefendantsController < ApplicationController
   def create
     @defendant = Defendant.new(defendant_params)
     if @defendant.save
-      redirect_to @defendant, notice: 'Defendant was successfully created.'
+      redirect_to defendants_path, notice: 'Defendant was successfully created.'
     else
       render :new
     end
@@ -26,7 +26,7 @@ class DefendantsController < ApplicationController
 
   def update
     if @defendant.update(defendant_params)
-      redirect_to @defendant, notice: 'Defendant was successfully updated.'
+      redirect_to defendants_path, notice: 'Defendant was successfully updated.'
     else
       render :edit
     end

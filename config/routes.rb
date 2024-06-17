@@ -18,4 +18,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'home#index'
+
+  namespace :api do
+    namespace :v1 do
+      resources :products  # This line allows direct access to products
+      resources :defendants do
+        resources :products
+      end
+    end
+  end
 end

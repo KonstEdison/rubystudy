@@ -7,7 +7,7 @@
           <div class="columns">
             <!-- First Column: All Text Inputs -->
             <div class="column is-8">
-              <% [:title, :price, :type, :marketplace_id, :items_sold, :notes, :copyright_usage_filenames, :tm_registration_number].each do |field| %>
+              <% [:title, :price, :product_type, :marketplace_id, :items_sold, :notes, :copyright_usage_filenames, :tm_registration_number].each do |field| %>
                 <div class="field-row">
                   <%= form.label field, class: 'label inline-label' %>
                   <%= form.text_field field, class: 'input inline-input', placeholder: "Enter #{field.to_s.gsub('_', ' ')}" %>

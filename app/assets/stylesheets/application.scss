@@ -68,3 +68,52 @@ $success: #23d160;
     justify-content: center;
     margin-top: 20px;
 }
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; // This separates the icon from the rest of the content
+    align-items: center;
+    text-align: center;
+    height: 100%; // Ensures the container takes full height of its parent
+    margin-bottom: 10px; // Space between icon and title
+}
+
+.card-icon {
+    margin-bottom: 10px; // Space between icon and title
+}
+
+.card {
+    height: 100%;
+}
+
+.title,
+.subtitle {
+    margin: 5px 0; // Reduces gap between title and subtitle
+}
+
+.button {
+    margin-top: auto; // Pushes the button to the bottom of the card
+}
+
+.content-align {
+    display: flex;
+    flex-direction: column;
+    height: 100%; // Ensures the container takes full height of its parent
+}
+
+.fixed-height-title {
+    height: 108px; // Adjust this value based on your design needs
+    overflow: hidden;
+}
+
+.large-icon {
+    color: $secondary;
+    font-size: 2em; // Adjust the size as needed
+}
+
+body {
+    background-image: url('/app/assets/images/Leonardo_Diffusion_XL_For_the_Trello_board_background_design_f_1.jpg');
+    background-size: cover; // Ensures the background covers the entire area
+    background-position: center; // Centers the background image
+}
