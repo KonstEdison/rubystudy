@@ -6,6 +6,11 @@ module Api
 
       def index
         @defendants = Defendant.all
+        params.each do |key, value|
+          if Defendant.column_names.include?(key) && value.present?
+            @defendants = @defendants.where("#{key} LIKE ?", "%#{value}%")
+          end
+        end
         render json: @defendants
       end
 
@@ -17,7 +22,7 @@ module Api
       def create
         @defendant = Defendant.new(defendant_params)
         if @defendant.save
-          render json: @defendant, status: :created
+          render json: { id: @defendant.id, message: "Defendant created successfully." }, status: :created
         else
           render json: @defendant.errors, status: :unprocessable_entity
         end
@@ -26,7 +31,7 @@ module Api
       def update
         @defendant = Defendant.find(params[:id])
         if @defendant.update(defendant_params)
-          render json: @defendant
+          render json: @defendant, status: :ok
         else
           render json: @defendant.errors, status: :unprocessable_entity
         end

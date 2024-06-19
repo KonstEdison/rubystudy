@@ -5,10 +5,11 @@ module Api
       before_action :set_product, only: [:show, :update, :destroy]
 
       def index
-        if @defendant
-          @products = @defendant.products
-        else
-          @products = Product.all
+        @products = Product.all
+        params.each do |key, value|
+          if Product.column_names.include?(key) && value.present?
+            @products = @products.where("#{key} LIKE ?", "%#{value}%")
+          end
         end
         render json: @products
       end
@@ -18,6 +19,7 @@ module Api
       end
 
       def create
+        @defendant = Defendant.find(params[:defendant_id])  # Ensure this param is passed
         @product = @defendant.products.build(product_params)
         if @product.save
           render json: @product, status: :created
@@ -27,14 +29,16 @@ module Api
       end
 
       def update
+        @product = Product.find(params[:id])
         if @product.update(product_params)
-          render json: @product
+          render json: @product, status: :ok
         else
           render json: @product.errors, status: :unprocessable_entity
         end
       end
 
       def destroy
+        @product = Product.find(params[:id])
         @product.destroy
         head :no_content
       end
