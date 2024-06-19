@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="title">Defendants</h1>
-  <%= link_to 'Create Defendant', new_defendant_path, class: 'button is-primary' %>
+  <%= link_to 'Create Defendant', new_case_defendant_path(@case), class: 'button is-primary' %>
   <table class="table is-fullwidth is-striped is-hoverable">
     <thead>
       <tr>
@@ -21,9 +21,9 @@
           <td><%= defendant.location %></td>
           <td><%= defendant.feedback %></td>
           <td><%= defendant.notes %></td>
-          <td><%= link_to 'Listings', defendant_products_path(defendant), class: 'button is-small is-info' %></td>
-          <td><%= link_to 'Edit', edit_defendant_path(defendant), class: 'button is-small is-primary' %></td>
-          <td><%= button_to 'Destroy', defendant_path(defendant), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-small is-danger' %></td>
+          <td><%= link_to 'Listings', case_defendant_products_path(@case, defendant), class: 'button is-small is-info' %></td>
+          <td><%= link_to 'Edit', edit_case_defendant_path(@case, defendant), class: 'button is-small is-primary' %></td>
+          <td><%= button_to 'Destroy', case_defendant_path(@case, defendant), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-small is-danger' %></td>
         </tr>
       <% end %>
     </tbody>

@@ -1,7 +1,7 @@
 <div class="container">
 <h1 class="title">Products for <%= @defendant.name %></h1>
 
-<%= link_to 'Create Product', new_defendant_product_path(@defendant), class: 'button is-primary' %>
+<%= link_to 'Create Product', new_case_defendant_product_path(@case, @defendant), class: 'button is-primary' %>
 
 <div class="table-container">
   <% if @products.empty? %>
@@ -30,8 +30,8 @@
             <td><%= product.marketplace_id %></td>
             <td><%= product.items_sold %></td>
             <td><%= product.notes %></td>
-            <td><%= link_to 'Edit', edit_defendant_product_path(@defendant, product), class: 'button is-small is-info' %></td>
-            <td><%= button_to 'Delete', defendant_product_path(@defendant, product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-small is-danger' %></td>
+            <td><%= link_to 'Edit', edit_case_defendant_product_path(@case, @defendant, product), class: 'button is-small is-info' %></td>
+            <td><%= button_to 'Delete', case_defendant_product_path(@case, @defendant, product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-small is-danger' %></td>
           </tr>
         <% end %>
       </tbody>

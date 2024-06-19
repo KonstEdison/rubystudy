@@ -1,0 +1,30 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">Edit Case</h1>
+    <%= form_with(model: @case, local: true, html: { class: "box" }) do |form| %>
+    <div class="field">
+  <%= form.label :internal_name, class: 'label' %>
+  <%= form.text_field :internal_name, class: 'input', placeholder: 'Enter internal name' %>
+</div>
+      <div class="field">
+        <%= form.label :edison_case_code, class: 'label' %>
+        <%= form.text_field :edison_case_code, class: 'input', placeholder: 'Enter case code' %>
+      </div>
+      <div class="field">
+        <%= form.label :brand_name, class: 'label' %>
+        <%= form.text_field :brand_name, class: 'input', placeholder: 'Enter brand name' %>
+      </div>
+      <div the="field">
+        <%= form.label :client_name, class: 'label' %>
+        <%= form.text_field :client_name, class: 'input', placeholder: 'Enter client name' %>
+      </div>
+      <div class="field">
+        <%= form.label :law_firm, class: 'label' %>
+        <%= form.text_field :law_firm, class: 'input', placeholder: 'Enter law firm' %>
+      </div>
+      <div class="field">
+        <%= form.submit "Update Case", class: 'button is-primary' %>
+      </div>
+    <% end %>
+  </div>
+</section>

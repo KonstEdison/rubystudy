@@ -1,0 +1,41 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">Case Details</h1>
+    <div class="box">
+      <div class="field">
+        <label class="label">Case Code</label>
+        <div class="control">
+          <input class="input" type="text" value="<%= @case.edison_case_code %>" readonly>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Brand Name</label>
+        <div class="control">
+          <input class="input" type="text" value="<%= @case.brand_name %>" readonly>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Client Name</label>
+        <div class="control">
+          <input class="input" type="text" value="<%= @case.client_name %>" readonly>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Law Firm</label>
+        <div class="control">
+          <input class="input" type="text" value="<%= @case.law_firm %>" readonly>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Internal Name</label>
+        <div class="control">
+          <input class="input" type="text" value="<%= @case.internal_name %>" readonly>
+        </div>
+      </div>
+      <div class="field">
+        <%= link_to 'Edit', edit_case_path(@case), class: 'button is-primary' %>
+        <%= link_to 'Back', cases_path, class: 'button is-light' %>
+      </div>
+    </div>
+  </div>
+</section>

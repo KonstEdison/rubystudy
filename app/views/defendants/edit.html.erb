@@ -3,7 +3,7 @@
     <div class="columns is-centered">
       <div class="column is-half">
         <h1 class="title">Edit Defendant</h1>
-        <%= form_with model: @defendant, local: true, html: { class: "box" } do |form| %>
+        <%= form_with model: [@case, @defendant], local: true, html: { class: "box" } do |form| %>
           <div class="field">
             <%= form.label :name, class: 'label' %>
             <%= form.text_field :name, class: 'input', placeholder: 'Enter name' %>

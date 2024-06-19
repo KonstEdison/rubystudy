@@ -1,24 +1,25 @@
 class DefendantsController < ApplicationController
+  before_action :set_case
   before_action :set_defendant, only: [:show, :edit, :update, :destroy]
 
   def index
-    @defendants = Defendant.all
+    @defendants = @case.defendants
   end
 
   def show
   end
 
   def new
-    @defendant = Defendant.new
+    @defendant = @case.defendants.build
   end
 
   def edit
   end
 
   def create
-    @defendant = Defendant.new(defendant_params)
+    @defendant = @case.defendants.build(defendant_params)
     if @defendant.save
-      redirect_to defendants_path, notice: 'Defendant was successfully created.'
+      redirect_to case_defendants_path(@case), notice: 'Defendant was successfully created.'
     else
       render :new
     end
@@ -26,7 +27,7 @@ class DefendantsController < ApplicationController
 
   def update
     if @defendant.update(defendant_params)
-      redirect_to defendants_path, notice: 'Defendant was successfully updated.'
+      redirect_to case_defendants_path(@case), notice: 'Defendant was successfully updated.'
     else
       render :edit
     end
@@ -34,12 +35,16 @@ class DefendantsController < ApplicationController
 
   def destroy
     @defendant.destroy
-    redirect_to defendants_url, notice: 'Defendant was successfully destroyed.'
+    redirect_to case_defendants_path(@case), notice: 'Defendant was successfully destroyed.'
   end
 
   private
+    def set_case
+      @case = Case.find(params[:case_id])
+    end
+
     def set_defendant
-      @defendant = Defendant.find(params[:id])
+      @defendant = @case.defendants.find(params[:id])
     end
 
     def defendant_params

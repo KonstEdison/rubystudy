@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :defendants do
-    resources :products
+  resources :cases do
+    resources :defendants do
+      resources :products
+    end
   end
 
   # Add this line to have a direct route to products
@@ -21,10 +23,15 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :products  # This line allows direct access to products
+      resources :cases
+      resources :products
       resources :defendants do
         resources :products
       end
     end
+  end
+
+  resources :cases do
+    resources :defendants, only: [:index]
   end
 end

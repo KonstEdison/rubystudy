@@ -5,11 +5,11 @@ module Api
       before_action :set_product, only: [:show, :update, :destroy]
 
       def index
-        @products = Product.all
-        params.each do |key, value|
-          if Product.column_names.include?(key) && value.present?
-            @products = @products.where("#{key} LIKE ?", "%#{value}%")
-          end
+        if params[:defendant_id].present?
+          @defendant = Defendant.find(params[:defendant_id])
+          @products = @defendant.products
+        else
+          @products = Product.all
         end
         render json: @products
       end

@@ -5,11 +5,11 @@ module Api
       protect_from_forgery with: :null_session
 
       def index
-        @defendants = Defendant.all
-        params.each do |key, value|
-          if Defendant.column_names.include?(key) && value.present?
-            @defendants = @defendants.where("#{key} LIKE ?", "%#{value}%")
-          end
+        if params[:case_id].present?
+          @case = Case.find(params[:case_id])
+          @defendants = @case.defendants
+        else
+          @defendants = Defendant.all
         end
         render json: @defendants
       end
