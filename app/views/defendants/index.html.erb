@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="title">Defendants</h1>
+  <h1 class="title">Defendants for <%= @case.internal_name %></h1>
   <%= link_to 'Create Defendant', new_case_defendant_path(@case), class: 'button is-primary' %>
   <table class="table is-fullwidth is-striped is-hoverable">
     <thead>
