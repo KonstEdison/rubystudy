@@ -1,7 +1,9 @@
-<h2 class="title is-2 has-text-centered">Log in</h2>
-
-<div class="columns is-centered">
+<div class="columns is-centered is-flex is-align-items-center" style="min-height: 100vh;">
   <div class="column is-4">
+  <div class="container has-text-centered"> 
+    <%= image_tag('edison-logo-shield-only-5dc3ef2a826159dd0b33007164877010439f89c36b2a18cd327a4a407e12d799.svg', alt: 'YourAppName Logo', width: "200", height: "200") %>
+  </div>
+    <h2 class="title is-2 has-text-centered has-text-white">Log in</h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "box" }) do |f| %>
       <div class="field">
         <%= f.label :email, class: "label" %>
