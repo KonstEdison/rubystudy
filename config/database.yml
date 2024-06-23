@@ -19,3 +19,4 @@ production:
   database: scraping_production
   username: <%= ENV['PRODUCTION_DB_USERNAME'] %>
   password: <%= ENV['PRODUCTION_DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>
