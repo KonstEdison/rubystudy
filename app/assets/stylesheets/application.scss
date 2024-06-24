@@ -15,45 +15,88 @@
  */
 
 // Define your custom colors first
-$primary: #243b5d;
-$secondary: #dd4338;
-$danger: #f14668;
-$success: #23d160;
+$primary: #008080;
+$secondary: #20B2AA;
+$accent: #FF6F61;
+$background: #F0F0F0;
+$text: #333333;
+$info: #20B2AA; // Light Teal
+$danger: #FF6F61; // Coral
+$warning: #FFA500; // Orange
+
 // Then import Bulma
 @import 'bulma';
+
+body {
+    background-color: $background;
+    color: $text;
+}
+
+.hero.is-primary {
+    background-color: $primary;
+    color: $background;
+}
+
+.button.is-primary {
+    background-color: $primary;
+    border-color: $primary;
+    color: $background;
+}
+
 .button.is-secondary {
     background-color: $secondary;
-    color: #ffffff; // Assuming you want white text
+    color: $background;
+}
+
+.button.is-accent {
+    background-color: $accent;
+    color: $background;
+}
+
+.button.is-info {
+    background-color: $info;
+    border-color: $info;
+    color: $background;
+}
+
+.button.is-danger {
+    background-color: $danger;
+    border-color: $danger;
+    color: $background;
+}
+
+.button.is-warning {
+    background-color: $warning;
+    border-color: $warning;
+    color: $background;
+}
+
+.card {
+    background-color: $background;
+    color: $text;
+    border: 1px solid $primary;
 }
 
 .field-row {
     display: flex;
     align-items: right;
-    /* Aligns items vertically */
     margin-bottom: 10px;
-    /* Adds space between rows */
 }
 
 .inline-label {
     width: 100%;
-    /* Adjust based on your layout needs */
     text-align: left;
-    /* Aligns text to the right */
     padding-right: 10px;
-    /* Adds space between label and input */
 }
 
 .inline-input {
-    // width: 9%; // You might want to remove or adjust this if it's not suitable for all inputs
-}
-
-.inline-input[type="text"] {
-    width: 100%; // Example width for text inputs
+    width: 100%;
 }
 
 .inline-input[type="checkbox"] {
-    min-width: 20px; // Ensures checkboxes are not too small
-    height: 20px; // Optional: Adjust height to match the new width if needed
+    min-width: 20px;
+    height: 20px;
+    accent-color: $primary; // Custom checkbox color
 }
 
 .checkbox-column {
@@ -72,15 +115,15 @@ $success: #23d160;
 .card-content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; // This separates the icon from the rest of the content
+    justify-content: space-between;
     align-items: center;
     text-align: center;
-    height: 100%; // Ensures the container takes full height of its parent
-    margin-bottom: 10px; // Space between icon and title
+    height: 100%;
+    margin-bottom: 10px;
 }
 
 .card-icon {
-    margin-bottom: 10px; // Space between icon and title
+    margin-bottom: 10px;
 }
 
 .card {
@@ -89,26 +132,25 @@ $success: #23d160;
 
 .title,
 .subtitle {
-    margin: 5px 0; // Reduces gap between title and subtitle
+    margin: 5px 0;
 }
 
 .button {
-    margin-top: auto; // Pushes the button to the bottom of the card
+    margin-top: auto;
 }
 
 .content-align {
     display: flex;
     flex-direction: column;
-    height: 100%; // Ensures the container takes full height of its parent
+    height: 100%;
 }
 
 .fixed-height-title {
-    height: 108px; // Adjust this value based on your design needs
+    height: 108px;
     overflow: hidden;
 }
 
 .large-icon {
-    color: $secondary;
-    font-size: 2em; // Adjust the size as needed
+    color: $primary;
+    font-size: 2em;
 }
-
