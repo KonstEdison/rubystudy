@@ -16,7 +16,4 @@ test:
 
 production:
   <<: *default
-  database: scraping_production
-  username: <%= ENV['PRODUCTION_DB_USERNAME'] %>
-  password: <%= ENV['PRODUCTION_DB_PASSWORD'] %>
-  host: <%= ENV['DB_HOST'] %>
+  url: postgres://ua567rq2ilfkv0:p4b216a48b0f325d5723262cb8681e8f27fffa5225aabd6b361cf93a4b42b85cf@cd5gks8n4kb20g.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d3km2pvb3o6pud
